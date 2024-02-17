@@ -1,12 +1,30 @@
 import React from 'react'
-
+import axios from 'axios';
 import './Main.css'
 import Camera from './Camera';
+import Webcam from "react-webcam";
+import { useAuth0 } from "@auth0/auth0-react";
+import { useCallback, useState, useRef } from "react"; // import useCallback
+
 
 const Main = (props) => {
+    const webcamRef = useRef(null);
     const user = props.user;
     const isAuthenticated = props.isAuthenticated;
     const isLoading = props.isLoading;
+
+    const handleReportClick = () => {
+        // This takes a screenshot and store as an image
+        const imageSrc = webcamRef.current.getScreenshot();
+
+        try {
+            // This sends a POST request to the backend with the json containting the image in base64
+            const response = axios.post("http://localhost:5001/classify", {"ImageData": imageSrc.split(',')[1]});
+            response.then((res) => console.log(res.data));
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
     return (
         <div className="home-container">
@@ -26,11 +44,9 @@ const Main = (props) => {
             </nav>
             </div>
             <div className="home-container2">
-                <Camera className="home-video" user={user} isAuthenticated={isAuthenticated} isLoading={isLoading} />
+                <Webcam className="home-video" height={600} width={700} ref={webcamRef} />
             <div className="home-container3">
-                <button type="button" className="home-button button">
-                Report
-                </button>
+                <button type="button" onClick={() => handleReportClick()} className="home-button button">Report</button>
                 <span className="home-text05">
                 This is a &#123;GarbageType&#125; garbage.
                 </span>
