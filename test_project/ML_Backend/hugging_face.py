@@ -11,14 +11,6 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-
-
-
-
-
-
-
-
 checkpoint = "google/owlvit-base-patch32"
 detector = pipeline(model=checkpoint, task="zero-shot-object-detection")
 
@@ -28,7 +20,7 @@ def handle_classify():
         base64_image = request.json["ImageData"]
         
         # OpenAI API Key
-        api_key = "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"
+        api_key = ""
 
         headers = {
             "Content-Type": "application/json",
