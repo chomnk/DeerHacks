@@ -9,9 +9,11 @@ const Camera = () => {
   const [imgSrc, setImgSrc] = useState(null);
 
   const capture = () => {
+    // This takes a screenshot and store as an image
     const imageSrc = webcamRef.current.getScreenshot();
 
     try {
+      // This sends a POST request to the backend with the json containting the image in base64
       const response = axios.post("http://localhost:5001/classify", {"ImageData": imageSrc.split(',')[1]});
       response.then((res) => console.log(res.data))
 
