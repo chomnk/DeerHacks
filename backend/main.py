@@ -1,4 +1,3 @@
-from transformers import pipeline
 import skimage
 import numpy as np
 from PIL import Image
@@ -7,20 +6,19 @@ from io import BytesIO
 import base64
 import requests
 from flask_cors import CORS
+from dotenv import load_dotenv
+import os
 
 app = Flask(__name__)
 CORS(app)
 
-checkpoint = "google/owlvit-base-patch32"
-detector = pipeline(model=checkpoint, task="zero-shot-object-detection")
+api_key = os.getenv("API_KEY")
+print(api_key)
 
 @app.route('/classify', methods=['GET', 'POST'])
 def handle_classify():
     if request.method == 'POST':
         base64_image = request.json["ImageData"]
-        
-        # OpenAI API Key
-        api_key = ""
 
         headers = {
             "Content-Type": "application/json",
