@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 import json
 import certifi
 from pymongo import MongoClient
+import base64
 
 file_path = '/home/kali/Desktop/DeerHacks/dataset.json'
 with open(file_path, 'r') as file:
