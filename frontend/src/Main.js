@@ -159,19 +159,20 @@ const Main = (props) => {
           </div>
             </div>
             <div className="home-container5">
-            <span className="home-text06">Your Scan History</span>
+            <span className="home-text06">Scan History</span>
             <ul className="home-ul list">
                 {items.map((item, index) => (
                     <li key={index} className="list-item">
-                        <span className="home-text07">{`You scanned a ${item}.`}</span>
+                        <span className="home-text07">{`${item}.`}</span>
                     </li>
                 ))}
             </ul>
             </div>
         </div>
-        <span className="signout">
+        <div onClick={() => navigate("/")} className="signout">
           <span>Sign Out</span>
-        </span>
+        </div>
+
         </div>
     )
 }

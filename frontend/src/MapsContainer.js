@@ -10,11 +10,6 @@ const MapsContainer = (props) => {
     <div className="page3-container">
       <div className="page3-map">
         <div onClick={() => navigate("/main")} className="page3-text">Trash Cam</div>
-        <img
-          src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/b5909890-fcf8-4ca0-ad70-50af423dcd80/624cab44-fcd3-4eda-a626-f8cf1315587b?org_if_sml=1770&amp;force_format=original"
-          alt="Rectangle132423"
-          className="page3-rectangle13"
-        />
         <div onClick={() => navigate("/main")} className="page3-text01">
           <span>Scan</span>
         </div>
@@ -24,11 +19,6 @@ const MapsContainer = (props) => {
         <div onClick={() => navigate("/maps")} className="page3-text05">
           <span>Map</span>
         </div>
-        <img
-          src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/b5909890-fcf8-4ca0-ad70-50af423dcd80/19ce31f8-18e3-4708-af9f-d1994eb8003f?org_if_sml=1487&amp;force_format=original"
-          alt="Rectangle142424"
-          className="page3-rectangle14"
-        />
         <img
           src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/b5909890-fcf8-4ca0-ad70-50af423dcd80/89d42cd0-7c09-4779-9c1f-66f13f2178c6?org_if_sml=14410&amp;force_format=original"
           alt="Rectangle152426"

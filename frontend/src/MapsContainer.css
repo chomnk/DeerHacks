@@ -1,3 +1,28 @@
+@font-face {
+  font-family: 'Red Hat Text';
+  src: url("../fonts/RedHatDisplay-Medium.ttf")
+}
+
+@font-face {
+  font-family: 'Urbanist';
+  src: url("../fonts/Urbanist-Bold.ttf")
+}
+
+@font-face{
+  font-family: 'Commissioner';
+  src: url("../fonts/Commissioner-Bold.ttf")
+}
+
+@font-face{
+  font-family: 'Anybody';
+  src: url("../fonts/Anybody-Bold.ttf")
+}
+
+@font-face{
+  font-family: 'Anybody-Normal';
+  src: url("../fonts/Anybody-Regular.ttf")
+}
+
 .page3-container {
     top:10px;
     width: 100%;
@@ -64,51 +89,81 @@
   }
   .page3-text01 {
     top: 139px;
-    left: 23px;
+    left: 0px;
     color: rgba(255, 255, 255, 1);
-    width: 90px;
-    height: auto;
+    font-size: 32px;
+    width:300px;
     position: absolute;
     font-size: 30px;
     font-style: Regular;
     text-align: left;
     font-family: Days One;
     font-weight: 400;
-    line-height: 120px;
     font-stretch: normal;
     text-decoration: none;
+    border-radius: 0    10px     10px           0;
+    font-family:Urbanist;
+    text-indent:210px;
+    background-position:center left;
+    background-color: rgba(32, 65, 41, 1);
+    transition: 0.3s;
+    font-style: normal;
+    margin-top: 10px;
+  }
+  .page3-text01:hover {
+    background-color: rgb(147, 192, 159);
   }
   .page3-text03 {
-    top: 253px;
-    left: 23px;
+    top: 210px;
+    left: 0px;
     color: rgba(255, 255, 255, 1);
-    width: 119px;
-    height: auto;
+    font-size: 32px;
+    width:300px;
     position: absolute;
     font-size: 30px;
     font-style: Regular;
     text-align: left;
     font-family: Days One;
     font-weight: 400;
-    line-height: 120px;
     font-stretch: normal;
     text-decoration: none;
+    border-radius: 0    10px     10px           0;
+    font-family:Urbanist;
+    text-indent:180px;
+    background-position:center left;
+    background-color: rgba(32, 65, 41, 1);
+    transition: 0.3s;
+    font-style: normal;
+    margin-top: 10px;
+  }
+  .page3-text03:hover {
+    background-color: rgb(147, 192, 159);
   }
   .page3-text05 {
-    top: 196px;
-    left: 23px;
+    top: 175px;
+    left: 0px;
     color: rgba(255, 255, 255, 1);
-    width: 70px;
-    height: auto;
+    font-size: 32px;
+    width:300px;
     position: absolute;
     font-size: 30px;
     font-style: Regular;
     text-align: left;
     font-family: Days One;
     font-weight: 400;
-    line-height: 120px;
     font-stretch: normal;
     text-decoration: none;
+    border-radius: 0    10px     10px           0;
+    font-family:Urbanist;
+    text-indent:210px;
+    background-position:center left;
+    background-color: rgba(32, 65, 41, 1);
+    transition: 0.3s;
+    font-style: normal;
+    margin-top: 10px;
+  }
+  .page3-text05:hover {
+    background-color: rgb(147, 192, 159);
   }
   .page3-rectangle14 {
     top: 640px;
@@ -120,15 +175,15 @@
   }
   .page3-rectangle15 {
     top: 30px;
-    left: 431px;
-    width: 873px;
+    left: 350px;
+    width: 700px;
     height: 600px;
     position: absolute;
     border-radius: 10px;
   }
   .page3-image23 {
     top: 50px;
-    left: 471px;
+    left: 360px;
     width: 794px;
     height: 561px;
     position: absolute;
@@ -145,18 +200,18 @@
   }
   .page3-rectangle17 {
     top: 540px;
-    left: 471px;
-    width: 403px;
-    height: 75px;
+    left: 360px;
+    width: 340px;
+    height: 70px;
     position: absolute;
     border-color: rgba(55, 74, 51, 1);
     border-radius: 0 0 0 10px;
   }
   .page3-rectangle18 {
     top: 540px;
-    left: 874px;
-    width: 391px;
-    height: 75px;
+    left: 700px;
+    width: 335px;
+    height: 70px;
     position: absolute;
     border-color: rgba(55, 74, 51, 1);
     border-style: solid;
@@ -164,7 +219,7 @@
     border-radius: 0 0 10px;
   }
   .page3-text07 {
-    left: 1005px;
+    left: 820px;
     top:515px;
     color: rgba(255, 255, 255, 1);
     width: auto;
@@ -182,7 +237,7 @@
   }
   .page3-text09 {
     top: 515px;
-    left: 612px;
+    left: 480px;
     color: rgba(55, 74, 51, 1);
     width: 115px;
     height: auto;
@@ -211,7 +266,7 @@
     position: absolute;
   }
   .page3-text11 {
-    top: 600px;
+    top: 610px;
     left:25px;
     color: rgba(255, 255, 255, 1);
     right: 57px;
