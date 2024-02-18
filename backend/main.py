@@ -39,14 +39,16 @@ def handle_report():
         lat = request.json.get("lat")
         lon = request.json.get("lon")
         
-    coll = db["sample_garbage"]
-    mydict = {"type": garbage_type, "lat": lat, "lon": lon}
-    x = coll.insert_one(mydict)
-    
-    if x.inserted_id != None:
-        return "Success"
+        coll = db["sample_garbage"]
+        mydict = {"type": garbage_type, "lat": lat, "lon": lon}
+        x = coll.insert_one(mydict)
+        
+        if x.inserted_id != None:
+            return "Success"
+        else:
+            return "Error"
     else:
-        return "Error"
+        return "Invalid method"
         
         
 
