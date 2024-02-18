@@ -9,21 +9,6 @@ const MapsContainer = (props) => {
       <div className="page3-map">
         <span className="page3-text">Trash Cam</span>
         <img
-          src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/b5909890-fcf8-4ca0-ad70-50af423dcd80/064328cd-e91e-471e-8a39-17c317339914?org_if_sml=1140&amp;force_format=original"
-          alt="Rectangle92423"
-          className="page3-rectangle9"
-        />
-        <img
-          src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/b5909890-fcf8-4ca0-ad70-50af423dcd80/e7af7d6b-c01b-47cf-811b-882e3cd8bf17?org_if_sml=1140&amp;force_format=original"
-          alt="Rectangle112423"
-          className="page3-rectangle11"
-        />
-        <img
-          src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/b5909890-fcf8-4ca0-ad70-50af423dcd80/47b1fe9a-eb33-4704-9064-d2d0b3902b5d?org_if_sml=1143&amp;force_format=original"
-          alt="Rectangle102423"
-          className="page3-rectangle10"
-        />
-        <img
           src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/b5909890-fcf8-4ca0-ad70-50af423dcd80/624cab44-fcd3-4eda-a626-f8cf1315587b?org_if_sml=1770&amp;force_format=original"
           alt="Rectangle132423"
           className="page3-rectangle13"

@@ -103,7 +103,7 @@
   margin-top: 0px;
   width:300px;
   background-position:center left;
-  text-indent:210px;
+  text-indent:180px;
   font-family:Urbanist;
 }
 .profile-text:hover {
@@ -264,4 +264,21 @@
   .home-sidebar {
     height: 70vh;
   }
+}
+.signout {
+  top: 600px;
+  left:25px;
+  color: rgba(255, 255, 255, 1);
+  right: 57px;
+  width: 102px;
+  height: auto;
+  position: absolute;
+  font-size: 25px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Commissioner;
+  font-weight: 500;
+  line-height: 120px;
+  font-stretch: normal;
+  text-decoration: none;
 }

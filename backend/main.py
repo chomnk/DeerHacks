@@ -9,7 +9,7 @@ from pymongo import MongoClient
 import base64
 
 # Loading all the item names
-file_path = "the_modified_garbage_item_file-2.json"
+file_path = r'C:\Users\fares\Documents\Hackathon\Repo\DeerHacks\the_modified_garbage_item_file-2.json'
 from bson import ObjectId
 
 # Custom JSON encoder that converts ObjectId to string
