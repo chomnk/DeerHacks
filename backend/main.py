@@ -50,7 +50,9 @@ def handle_locations():
         all_documents = coll.find()
         for document in all_documents:
             result.append(document)
-    return json.dumps(result, cls=JSONEncoder)
+        return json.dumps(result, cls=JSONEncoder)
+    else:
+        return "Invalid method"
     
     
 @app.route('/report', methods=['GET', 'POST'])
