@@ -1,26 +1,26 @@
 @font-face {
   font-family: 'Red Hat Text';
-  src: url("C:\Users\fares\Documents\Hackathon\Repo\DeerHacks\frontend\fonts\RedHatDisplay-Medium.ttf")
+  src: url("../fonts/RedHatDisplay-Medium.ttf")
 }
 
 @font-face {
   font-family: 'Urbanist';
-  src: url("C:\Users\fares\Documents\Hackathon\Repo\DeerHacks\frontend\fonts\Urbanist-Bold.ttf")
+  src: url("../fonts/Urbanist-Bold.ttf")
 }
 
 @font-face{
   font-family: 'Commissioner';
-  src: url("C:\Users\fares\Documents\Hackathon\Repo\DeerHacks\frontend\fonts\Commissioner-Bold.ttf")
+  src: url("../fonts/Commissioner-Bold.ttf")
 }
 
 @font-face{
   font-family: 'Anybody';
-  src: url("C:\Users\fares\Documents\Hackathon\Repo\DeerHacks\frontend\fonts\Anybody-Bold.ttf")
+  src: url("../fonts/Anybody-Bold.ttf")
 }
 
 @font-face{
   font-family: 'Anybody-Normal';
-  src: url("C:\Users\fares\Documents\Hackathon\Repo\DeerHacks\frontend\fonts\Anybody-Regular.ttf")
+  src: url("../fonts/Anybody-Regular.ttf")
 }
 
 .page1-opening-page {
@@ -379,7 +379,8 @@
   line-height: 30px;
   font-stretch: normal;
   text-decoration: none;
-  src: url("C:\Users\fares\Documents\Fonts\Red_Hat_Display\static\RedHatDisplay-Medium.ttf");
+  
+  src: url("../fonts/RedHatDisplay-Medium.ttf");
 }
 .page1-text25 {
   top: 60px;

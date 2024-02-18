@@ -49,7 +49,7 @@ const Maps = () => {
                     <h1>Loading...</h1>
                 ) : (
                 <GoogleMap
-                    mapContainerClassName="App"
+                    mapContainerClassName="map-container"
                     center={center}
                     zoom={15}
                 >
