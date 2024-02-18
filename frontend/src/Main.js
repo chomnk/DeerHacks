@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import axios from 'axios';
 import './Main.css'
 import Webcam from "react-webcam";
@@ -42,17 +42,18 @@ const Main = (props) => {
                 {
                     "lat": location.latitude,
                     "lon": location.longitude,
-                    "type": GarbageType
+                    "type": GarbageType,
                 }
             );
             response.then((res) => {
-                //append to scan history list
-                setItems([...items, GarbageType])
-                //
-                setIsScanDisabled(false);
-                setScanButtonText("Scan");
-                setIsReportDisabled(true);
-                setDisplayText("");
+                //useEffect(() => {
+                    //enable scan button
+                    setIsScanDisabled(false);
+                    setScanButtonText("Scan");
+                    //disable report button
+                    setIsReportDisabled(true);
+                    setDisplayText("");
+                //}, [])
             });
         } catch (error) {
             console.error(error);
@@ -61,6 +62,11 @@ const Main = (props) => {
     
 
     const handleScanClick = () => {
+        if (ScanButtonText == "Cancel") { 
+            setScanButtonText("Scan");
+            setIsScanDisabled(false);
+            return;
+        }
         // This takes a screenshot and store as an image
         const imageSrc = webcamRef.current.getScreenshot();
 
@@ -72,12 +78,20 @@ const Main = (props) => {
                 }
             );
             response.then((res) => {
-                setGarbageType(res.data.type);
-                setGarbageBin(res.data.bin);
-                setIsReportDisabled(true);
-                setScanButtonText("Cancel");
-                setDisplayText(`This is a ${GarbageType} garbage.`);
+                console.log(res.data)
+                //useEffect(() => {
+                    setGarbageType(res.data.item);
+                    setGarbageBin(res.data.category);
+                    // enable report button
+                    setIsReportDisabled(false);
+                    setScanButtonText("Cancel");
+                    (() => setDisplayText(`This is a ${GarbageType} garbage.`))();
+                //}, [])
             });
+            (()=> setItems([...items, GarbageType]))();
+            //setDisplayText(`This is a ${GarbageType} garbage.`);
+            //append to scan history list
+            //setItems([...items, GarbageType])
         } catch (error) {
             console.error(error);
         }
@@ -108,10 +122,10 @@ const Main = (props) => {
                 </span>
             </div>
             <div className="home-container4">
-            <button type="button" onClick={() => handleScanClick()} className="home-button button">
+            <button type="button" onClick={() => handleScanClick()} disabled={isScanDisabled} className="home-button button">
               {ScanButtonText}
             </button>
-            <button type="button" onClick={() => handleReportClick()} className="home-button1 button">
+            <button type="button" onClick={() => handleReportClick()} disabled={isScanDisabled} className="home-button1 button">
               Report
             </button>
           </div>
