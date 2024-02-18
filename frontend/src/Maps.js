@@ -34,6 +34,14 @@ const Maps = () => {
     });
     const center = useMemo(() => ({ lat: 43.550278905550954, lng: -79.66573178675947 }), []);
 
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        const year = date.getFullYear().toString().slice(2); // Get last two digits of the year
+        const month = ('0' + (date.getMonth() + 1)).slice(-2); // Add leading zero if needed
+        const day = ('0' + date.getDate()).slice(-2); // Add leading zero if needed
+        return `${year}.${month}.${day}`;
+    }
+
     return (
         <div className="Test">
             <div className="App">
@@ -53,7 +61,12 @@ const Maps = () => {
                         >
                             {isOpen && infoWindowData.idx == index && 
                                 <InfoWindow onCloseClick={() => {setIsOpen(false)}}>
-                                    <h3>{infoWindowData.type}</h3>
+                                    <div>
+                                        <h3>Type: {infoWindowData.type}</h3>
+                                        <h3>Reported at: {infoWindowData.time.slice(0, 10)}</h3>
+                                        <h3>Location: {location.lat}, {location.lon}</h3>
+                                        
+                                    </div>
                                 </InfoWindow>
                             }
                         </Marker>

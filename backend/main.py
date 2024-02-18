@@ -42,6 +42,14 @@ except Exception as e:
 # Getting the api key from the env
 api_key = os.getenv("API_KEY")
 
+
+def extract_content(s):
+    first_bracket_index = s.find('{')
+    last_bracket_index = s.rfind('}')
+    if first_bracket_index != -1 and last_bracket_index != -1 and last_bracket_index > first_bracket_index:
+        return s[first_bracket_index:last_bracket_index+1]
+    return None
+
 @app.route('/locations', methods=['GET', 'POST'])
 def handle_locations():
     if request.method == 'POST':
@@ -105,8 +113,34 @@ def handle_classify():
             ],
             "max_tokens": 300
         }
+        
+        payload_2 = {
+            "model": "gpt-4-vision-preview",
+            "messages": [
+                {
+                    "role": "system",
+                    "content": "You will be classifying images based on the given categories."
+                },
+                {
+                    "role": "user",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": f"Classify the image based on the following categories: {item_names[:1000]}, return message should be the item name only"
+                        },
+                        {
+                            "type": "image_url",
+                            "image_url": {
+                                "url": f"data:image/jpeg;base64,{base64_image}"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "max_tokens": 300
+        }
 
-        response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload_2)
+        response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload_1)
 
         print(response.json())
         temp1 = response.json()["choices"][0]["message"]["content"]
