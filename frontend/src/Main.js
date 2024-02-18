@@ -108,6 +108,10 @@ const Main = (props) => {
             );
             response.then((res) => {
                 console.log(res.data)
+                if (res.data == "TIME_LIMIT") {
+                    setDisplayText("You are being rate-limited. Try again in 1min.")
+                    return;
+                }
                 //useEffect(() => {
                     setGarbageType(res.data.item);
                     setGarbageBin(res.data.category);

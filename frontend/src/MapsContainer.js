@@ -2,26 +2,28 @@ import React from 'react'
 
 import './MapsContainer.css'
 import Maps from './Maps'
+import { useNavigate } from 'react-router-dom';
 
 const MapsContainer = (props) => {
+    const navigate = useNavigate();
   return (
     <div className="page3-container">
       <div className="page3-map">
-        <span className="page3-text">Trash Cam</span>
+        <div onClick={() => navigate("/main")} className="page3-text">Trash Cam</div>
         <img
           src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/b5909890-fcf8-4ca0-ad70-50af423dcd80/624cab44-fcd3-4eda-a626-f8cf1315587b?org_if_sml=1770&amp;force_format=original"
           alt="Rectangle132423"
           className="page3-rectangle13"
         />
-        <span className="page3-text01">
+        <div onClick={() => navigate("/main")} className="page3-text01">
           <span>Scan</span>
-        </span>
-        <span className="page3-text03">
+        </div>
+        <div onClick={() => navigate("/")} className="page3-text03">
           <span>History</span>
-        </span>
-        <span className="page3-text05">
+        </div>
+        <div onClick={() => navigate("/maps")} className="page3-text05">
           <span>Map</span>
-        </span>
+        </div>
         <img
           src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/b5909890-fcf8-4ca0-ad70-50af423dcd80/19ce31f8-18e3-4708-af9f-d1994eb8003f?org_if_sml=1487&amp;force_format=original"
           alt="Rectangle142424"
