@@ -88,7 +88,7 @@ const Main = (props) => {
                     // enable report button
                     setIsReportDisabled(false);
                     setScanButtonText("Cancel");
-                    (() => setDisplayText(`This is a ${GarbageType} garbage.`))();
+                    (() => setDisplayText(`Your object is a(n) ${GarbageType}.`))();
                 //}, [])
             });
             (()=> setItems([...items, GarbageType]))();
@@ -105,9 +105,9 @@ const Main = (props) => {
         <div className="home-container1">
             <div className="home-sidebar">
             <nav className="home-nav">
-                <div className="home-text04" onClick={() => navigate("/main")}>Trash Cam</div>
-                <div className="home-text" onClick={() => navigate("/main")}>Scan</div>
-                <div className="home-text01" onClick={() => navigate("/maps")}>Garbage Map</div>
+                <div className="trash_cam" onClick={() => navigate("/main")}>Trash Cam</div>
+                <div className="scan-text" onClick={() => navigate("/main")}>Scan</div>
+                <div className="map-text" onClick={() => navigate("/maps")}>Map</div>
                 <div className="home-text02" onClick={() => navigate("/profile")}>Profile</div>
                 <div className="home-text" onClick={() => navigate("/")}>Log Out</div>
             </nav>
