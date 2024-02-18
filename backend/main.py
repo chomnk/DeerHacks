@@ -143,7 +143,7 @@ def handle_classify():
 
         print(response.json())
         
-        if (response.json()["error"] != None):
+        if ("error" in response.json()):
             return "TIME_LIMIT"
 
         temp1 = response.json()["choices"][0]["message"]["content"]
