@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import requests
 from flask_cors import CORS
 import os
@@ -40,6 +40,17 @@ except Exception as e:
 api_key = os.getenv("API_KEY")
 print(api_key)
 
+@app.route('/locations', methods=['GET', 'POST'])
+def handle_locations():
+    if request.method == 'POST':
+        result = []
+        coll = db["sample_garbage"]
+        all_documents = coll.find()
+        for document in all_documents:
+            result.append(document)
+    return json.dumps(result, cls=JSONEncoder)
+    
+    
 @app.route('/report', methods=['GET', 'POST'])
 def handle_report():
     if request.method == 'POST':

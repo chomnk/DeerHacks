@@ -4,9 +4,11 @@ import './Main.css'
 import Webcam from "react-webcam";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useCallback, useState, useRef } from "react"; // import useCallback
-
+import { useNavigate } from 'react-router-dom';
 
 const Main = (props) => {
+    const navigate = useNavigate();
+    
     const webcamRef = useRef(null);
     const user = props.user;
     const isAuthenticated = props.isAuthenticated;
@@ -43,6 +45,9 @@ const Main = (props) => {
                     "lat": location.latitude,
                     "lon": location.longitude,
                     "type": GarbageType,
+                    //new fields of data
+                    "time": Date.now(),
+                    "user_email": user.email
                 }
             );
             response.then((res) => {
@@ -64,6 +69,7 @@ const Main = (props) => {
     const handleScanClick = () => {
         if (ScanButtonText == "Cancel") { 
             setScanButtonText("Scan");
+            setDisplayText("Your previous ")
             setIsScanDisabled(false);
             return;
         }
@@ -107,11 +113,10 @@ const Main = (props) => {
                 src="https://presentation-website-assets.teleporthq.io/logos/logo.png"
                 className="home-image"
                 />
-                <span className="home-text">Scan</span>
-                <span className="home-text01">Garbage Map</span>
-                <span className="home-text02">Profile</span>
-                <span className="home-text03">Usage Guide</span>
-                <span className="home-text04">Log Out</span>
+                <div className="home-text" onClick={() => navigate("/main")}>Scan</div>
+                <div className="home-text01" onClick={() => navigate("/maps")}>Garbage Map</div>
+                <div className="home-text02" onClick={() => navigate("/profile")}>Profile</div>
+                <div className="home-text04" onClick={() => navigate("/")}>Log Out</div>
             </nav>
             </div>
             <div className="home-container2">
