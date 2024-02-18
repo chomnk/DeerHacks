@@ -4,6 +4,7 @@ import { Auth0Provider, useAuth0 } from '@auth0/auth0-react';
 import Login from './Login';
 import Main from './Main';
 import Maps from './Maps';
+import Main_0 from './Main_0';
 
 const AppRouter = () => {
     const { loginWithRedirect, user, isAuthenticated, isLoading } = useAuth0();

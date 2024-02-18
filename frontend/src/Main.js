@@ -105,15 +105,11 @@ const Main = (props) => {
         <div className="home-container1">
             <div className="home-sidebar">
             <nav className="home-nav">
-                <img
-                alt="image"
-                src="https://presentation-website-assets.teleporthq.io/logos/logo.png"
-                className="home-image"
-                />
+                <div className="home-text04" onClick={() => navigate("/main")}>Trash Cam</div>
                 <div className="home-text" onClick={() => navigate("/main")}>Scan</div>
                 <div className="home-text01" onClick={() => navigate("/maps")}>Garbage Map</div>
                 <div className="home-text02" onClick={() => navigate("/profile")}>Profile</div>
-                <div className="home-text04" onClick={() => navigate("/")}>Log Out</div>
+                <div className="home-text" onClick={() => navigate("/")}>Log Out</div>
             </nav>
             </div>
             <div className="home-container2">
