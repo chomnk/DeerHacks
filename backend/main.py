@@ -142,6 +142,10 @@ def handle_classify():
         response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload_1)
 
         print(response.json())
+        
+        if (response.json()["error"] != None):
+            return "TIME_LIMIT"
+
         temp1 = response.json()["choices"][0]["message"]["content"]
         temp2 = json.loads(extract_content(temp1))
         
