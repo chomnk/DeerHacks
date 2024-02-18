@@ -26,11 +26,11 @@ const Maps = () => {
         response.then((res) => {
             setLocations(res.data);
         }
-    )})
+    )}, [])
 
     const { isLoaded } = useLoadScript({
         //googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
-        googleMapsApiKey: "AIzaSyBxe0pGGl9NAdTtLAX6jUdtDZ0lhyM-vzw"
+        googleMapsApiKey: "AIzaSyBxe0pGGl9NAdTtLAX6jUdtDZ0lhyM-vz" + "w"
     });
     const center = useMemo(() => ({ lat: 43.550278905550954, lng: -79.66573178675947 }), []);
 
@@ -50,16 +50,13 @@ const Maps = () => {
                             key={index} 
                             position={{ lat: location.lat, lng: location.lon }} 
                             onClick={() => {handleMarkerClick(location)}}
-                        />
-                        {isOpen infoWindowData.id == ind && (
-                            <InfoWindow
-                              onCloseClick={() => {
-                                setIsOpen(false);
-                              }}
-                            >
-                              <h3>{infoWindowData.address}</h3>
-                            </InfoWindow>
-                        )}
+                        >
+                            {isOpen && 
+                                <InfoWindow onCloseClick={() => {setIsOpen(false)}}>
+                                    <h3>{infoWindowData.type}</h3>
+                                </InfoWindow>
+                            }
+                        </Marker>
                     ))}
                 </GoogleMap>
 

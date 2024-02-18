@@ -2,6 +2,7 @@ blinker==1.7.0
 certifi==2024.2.2
 charset-normalizer==3.3.2
 click==8.1.7
+dnspython==2.6.0
 Flask==3.0.2
 Flask-Cors==4.0.0
 idna==3.6
@@ -14,6 +15,7 @@ networkx==3.2.1
 numpy==1.26.4
 packaging==23.2
 pillow==10.2.0
+pymongo==4.6.1
 python-dotenv==1.0.1
 requests==2.31.0
 scikit-image==0.22.0

@@ -6,24 +6,17 @@ from dotenv import load_dotenv
 import json
 import certifi
 from pymongo import MongoClient
-import certifi
-import ssl
-from bson import ObjectId
+import base64
 
-class JSONEncoder(json.JSONEncoder):
-    def default(self, o):
-        if isinstance(o, ObjectId):
-            return str(o)
-        return super().default(o)
-
-file_path = 'the_modified_garbage_item_file-2.json'
-
-
+file_path = '/home/kali/Desktop/DeerHacks/dataset.json'
 with open(file_path, 'r') as file:
     data = json.load(file)
-    
+    item_names = [item['item'] for item in data]
+
 app = Flask(__name__)
 CORS(app)
+
+load_dotenv()
 
 client = MongoClient('mongodb+srv://Deerhacks:deerhacks@deerhacks.9v30i1z.mongodb.net/?retryWrites=true&w=majority', tlsCAFile=certifi.where())
 
@@ -38,7 +31,6 @@ except Exception as e:
     
 
 api_key = os.getenv("API_KEY")
-print(api_key)
 
 @app.route('/locations', methods=['GET', 'POST'])
 def handle_locations():
@@ -66,13 +58,8 @@ def handle_report():
         return "Success"
     else:
         return "Error"
-    
-def extract_content(s):
-    first_bracket_index = s.find('{')
-    last_bracket_index = s.rfind('}')
-    if first_bracket_index != -1 and last_bracket_index != -1 and last_bracket_index > first_bracket_index:
-        return s[first_bracket_index:last_bracket_index+1]
-    return None
+        
+        
 
 @app.route('/classify', methods=['GET', 'POST'])
 def handle_classify():
@@ -84,7 +71,7 @@ def handle_classify():
             "Authorization": f"Bearer {api_key}"
         }
 
-        payload = {
+        payload_1 = {
             "model": "gpt-4-vision-preview",
             "messages": [
                 {
@@ -106,7 +93,7 @@ def handle_classify():
             "max_tokens": 300
         }
 
-        response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
+        response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload_2)
 
         print(response.json())
         temp1 = response.json()["choices"][0]["message"]["content"]
@@ -122,6 +109,51 @@ def handle_classify():
             return json_str
         
         return json_str
+
+@app.route('/test', methods=['GET'])
+def handle_test():
+    if request.method == 'GET':
+        img_url = "https://images.pexels.com/photos/7825048/pexels-photo-7825048.jpeg"
+        response = requests.get(img_url)
+        base64_image = base64.b64encode(response.content).decode('utf-8')
+
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {api_key}"
+        }
+
+        payload_2 = {
+            "model": "gpt-4-vision-preview",
+            "messages": [
+                {
+                    "role": "system",
+                    "content": "You will be classifying images based on the given categories."
+                },
+                {
+                    "role": "user",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": f"Classify the image based on the following categories: {item_names[:1000]}, return message should be the item name only"
+                        },
+                        {
+                            "type": "image_url",
+                            "image_url": {
+                                "url": f"data:image/jpeg;base64,{base64_image}"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "max_tokens": 300
+        }
+
+        response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload_2)
+        json_response = response.json()
+
+        # Extract the content
+        content = json_response["choices"][0]["message"]["content"]
+        return content
 
 if __name__ == '__main__':
     app.run(port=5001)
