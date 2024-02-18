@@ -1,0 +1,254 @@
+.page2-container {
+    width: 100%;
+    display: flex;
+    overflow: auto;
+    min-height: 100vh;
+    align-items: center;
+    flex-direction: column;
+  }
+  .page2-home-page-scan-main {
+    width: 100%;
+    height: 1024px;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    align-items: flex-start;
+    flex-shrink: 0;
+    background-color: rgba(55, 74, 51, 1);
+  }
+  .page2-text {
+    left: 84px;
+    color: rgb(255, 255, 255);
+    height: auto;
+    position: absolute;
+    font-size: 50px;
+    font-style: Bold;
+    text-align: left;
+    font-family: "Urbanist";
+    font-weight: 700;
+    line-height: 120px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .page2-rectangle9 {
+    top: 46px;
+    left: 24px;
+    width: 49px;
+    height: 5px;
+    position: absolute;
+  }
+  .page2-rectangle11 {
+    top: 73px;
+    left: 24px;
+    width: 49px;
+    height: 5px;
+    position: absolute;
+  }
+  .page2-rectangle10 {
+    top: 59px;
+    left: 24px;
+    width: 49px;
+    height: 6px;
+    position: absolute;
+  }
+  .page2-rectangle13 {
+    top: 171px;
+    left: -49px;
+    width: 335px;
+    height: 55px;
+    position: absolute;
+    border-color: rgba(0, 0, 0, 1);
+    border-style: solid;
+    border-width: 0.10000000149011612px;
+    border-radius: 100px;
+  }
+  .page2-text01 {
+    top: 139px;
+    left: 23px;
+    color: rgba(255, 255, 255, 1);
+    width: 90px;
+    height: auto;
+    position: absolute;
+    font-size: 30px;
+    font-style: Regular;
+    text-align: left;
+    font-family: Days One;
+    font-weight: 400;
+    line-height: 120px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .page2-text03 {
+    top: 253px;
+    left: 23px;
+    color: rgba(255, 255, 255, 1);
+    width: 119px;
+    height: auto;
+    position: absolute;
+    font-size: 30px;
+    font-style: Regular;
+    text-align: left;
+    font-family: Days One;
+    font-weight: 400;
+    line-height: 120px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .page2-text05 {
+    top: 196px;
+    left: 23px;
+    color: rgba(255, 255, 255, 1);
+    width: 70px;
+    height: auto;
+    position: absolute;
+    font-size: 30px;
+    font-style: Regular;
+    text-align: left;
+    font-family: Days One;
+    font-weight: 400;
+    line-height: 120px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .page2-rectangle14 {
+    top: 34px;
+    left: 1290px;
+    width: 116px;
+    height: 44px;
+    position: absolute;
+    border-radius: 8px;
+  }
+  .page2-text07 {
+    top: -4px;
+    color: rgb(255, 255, 255);
+    right: 57px;
+    width: 102px;
+    height: var(--dl-size-size-small);
+    position: absolute;
+    font-size: 25px;
+    font-style: Medium;
+    text-align: left;
+    font-family: "Commissioner";
+    font-weight: 500;
+    line-height: 120px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .page2-image21 {
+    top: 85px;
+    left: 393px;
+    position: absolute;
+  }
+  .page2-text08 {
+    left: 403px;
+    color: rgb(255, 255, 255);
+    width: auto;
+    bottom: 51px;
+    height: auto;
+    position: absolute;
+    font-size: 30px;
+    font-style: Regular;
+    text-align: left;
+    font-family: "Days One";
+    font-weight: 400;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .page2-text09 {
+    text-decoration: none;
+  }
+  .page2-text10 {
+    font-size: 45px;
+    text-decoration: underline;
+  }
+  .page2-text11 {
+    color: #ffffff;
+  }
+  .page2-text12 {
+    color: #ffffff;
+  }
+  .page2-text13 {
+    color: #ffffff;
+  }
+  .page2-text14 {
+    color: #37a6e4;
+    font-size: 45px;
+  }
+  .page2-text15 {
+    color: #37a6e4;
+  }
+  .page2-frame1 {
+    top: 774px;
+    left: 538px;
+    width: 364px;
+    height: 72px;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    box-shadow: 0px 0px 25px 4px rgba(0, 0, 0, 0.25) ;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background-color: #509657;
+  }
+  .page2-image22 {
+    top: 14px;
+    left: 155px;
+    width: 54px;
+    height: 44px;
+    position: absolute;
+  }
+  .page2-report {
+    top: 774px;
+    left: 933px;
+    width: 222px;
+    height: 72px;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    box-shadow: 0px 0px 25px 4px rgba(0, 0, 0, 0.25) ;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background-color: rgba(131, 131, 131, 1);
+  }
+  .page2-text16 {
+    top: -19px;
+    left: 59px;
+    color: rgba(255, 255, 255, 1);
+    width: 103px;
+    height: auto;
+    position: absolute;
+    font-size: 30px;
+    font-style: Regular;
+    text-align: left;
+    font-family: Days One;
+    font-weight: 400;
+    line-height: 120px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .page2-text18 {
+    left: 408px;
+    color: rgb(255, 255, 255);
+    width: auto;
+    bottom: 36px;
+    height: auto;
+    position: absolute;
+    font-size: 12px;
+    font-style: Regular;
+    text-align: left;
+    font-family: "Days One";
+    font-weight: 400;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .page2-text19 {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  .page2-text20 {
+    color: #0084ff;
+    text-decoration: underline;
+  }
+  

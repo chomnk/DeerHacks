@@ -1,0 +1,285 @@
+@font-face {
+  font-family: 'Red Hat Text';
+  src: url("../fonts/RedHatDisplay-Medium.ttf")
+}
+
+@font-face {
+  font-family: 'Urbanist';
+  src: url("../fonts/Urbanist-Bold.ttf")
+}
+
+@font-face{
+  font-family: 'Commissioner';
+  src: url("../fonts/Commissioner-Bold.ttf")
+}
+
+@font-face{
+  font-family: 'Anybody';
+  src: url("../fonts/Anybody-Bold.ttf")
+}
+
+@font-face{
+  font-family: 'Anybody-Normal';
+  src: url("../fonts/Anybody-Regular.ttf")
+}
+
+.page3-container {
+    top:10px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+  }
+  .page3-map {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+    flex-shrink: 0;
+    justify-content: flex-end;
+    background-color: rgba(55, 74, 51, 1);
+  }
+  .page3-text {
+    left: 25px;
+    color: rgb(255, 255, 255);
+    height: auto;
+    position: absolute;
+    font-size: 50px;
+    font-style: Bold;
+    text-align: left;
+    font-family: "Urbanist";
+    font-weight: 700;
+    line-height: 120px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .page3-rectangle9 {
+    top: 46px;
+    left: 24px;
+    width: 49px;
+    height: 5px;
+    position: absolute;
+  }
+  .page3-rectangle11 {
+    top: 73px;
+    left: 24px;
+    width: 49px;
+    height: 5px;
+    position: absolute;
+  }
+  .page3-rectangle10 {
+    top: 59px;
+    left: 24px;
+    width: 49px;
+    height: 6px;
+    position: absolute;
+  }
+  .page3-rectangle13 {
+    top: 230px;
+    left: -52px;
+    width: 335px;
+    height: 55px;
+    position: absolute;
+    border-color: rgba(0, 0, 0, 1);
+    border-style: solid;
+    border-width: 0.10000000149011612px;
+    border-radius: 100px;
+  }
+  .page3-text01 {
+    top: 139px;
+    left: 0px;
+    color: rgba(255, 255, 255, 1);
+    font-size: 32px;
+    width:300px;
+    position: absolute;
+    font-size: 30px;
+    font-style: Regular;
+    text-align: left;
+    font-family: Days One;
+    font-weight: 400;
+    font-stretch: normal;
+    text-decoration: none;
+    border-radius: 0    10px     10px           0;
+    font-family:Urbanist;
+    text-indent:210px;
+    background-position:center left;
+    background-color: rgba(32, 65, 41, 1);
+    transition: 0.3s;
+    font-style: normal;
+    margin-top: 10px;
+  }
+  .page3-text01:hover {
+    background-color: rgb(147, 192, 159);
+  }
+  .page3-text03 {
+    top: 210px;
+    left: 0px;
+    color: rgba(255, 255, 255, 1);
+    font-size: 32px;
+    width:300px;
+    position: absolute;
+    font-size: 30px;
+    font-style: Regular;
+    text-align: left;
+    font-family: Days One;
+    font-weight: 400;
+    font-stretch: normal;
+    text-decoration: none;
+    border-radius: 0    10px     10px           0;
+    font-family:Urbanist;
+    text-indent:180px;
+    background-position:center left;
+    background-color: rgba(32, 65, 41, 1);
+    transition: 0.3s;
+    font-style: normal;
+    margin-top: 10px;
+  }
+  .page3-text03:hover {
+    background-color: rgb(147, 192, 159);
+  }
+  .page3-text05 {
+    top: 175px;
+    left: 0px;
+    color: rgba(255, 255, 255, 1);
+    font-size: 32px;
+    width:300px;
+    position: absolute;
+    font-size: 30px;
+    font-style: Regular;
+    text-align: left;
+    font-family: Days One;
+    font-weight: 400;
+    font-stretch: normal;
+    text-decoration: none;
+    border-radius: 0    10px     10px           0;
+    font-family:Urbanist;
+    text-indent:210px;
+    background-position:center left;
+    background-color: rgba(32, 65, 41, 1);
+    transition: 0.3s;
+    font-style: normal;
+    margin-top: 10px;
+  }
+  .page3-text05:hover {
+    background-color: rgb(147, 192, 159);
+  }
+  .page3-rectangle14 {
+    top: 640px;
+    left: 10px;
+    width: 116px;
+    height: 44px;
+    position: absolute;
+    border-radius: 8px;
+  }
+  .page3-rectangle15 {
+    top: 30px;
+    left: 350px;
+    width: 700px;
+    height: 600px;
+    position: absolute;
+    border-radius: 10px;
+  }
+  .page3-image23 {
+    top: 50px;
+    left: 360px;
+    width: 794px;
+    height: 561px;
+    position: absolute;
+    border-color: rgba(55, 74, 51, 1);
+    border-style: solid;
+    border-width: 1px;
+  }
+  .page3-line2 {
+    top: 695px;
+    left: 1207px;
+    width: 30px;
+    height: 1px;
+    position: absolute;
+  }
+  .page3-rectangle17 {
+    top: 540px;
+    left: 360px;
+    width: 340px;
+    height: 70px;
+    position: absolute;
+    border-color: rgba(55, 74, 51, 1);
+    border-radius: 0 0 0 10px;
+  }
+  .page3-rectangle18 {
+    top: 540px;
+    left: 700px;
+    width: 335px;
+    height: 70px;
+    position: absolute;
+    border-color: rgba(55, 74, 51, 1);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 0 0 10px;
+  }
+  .page3-text07 {
+    left: 820px;
+    top:515px;
+    color: rgba(255, 255, 255, 1);
+    width: auto;
+    bottom: 175px;
+    height: auto;
+    position: absolute;
+    font-size: 25px;
+    font-style: Medium;
+    text-align: left;
+    font-family: Commissioner;
+    font-weight: 500;
+    line-height: 120px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .page3-text09 {
+    top: 515px;
+    left: 480px;
+    color: rgba(55, 74, 51, 1);
+    width: 115px;
+    height: auto;
+    position: absolute;
+    font-size: 25px;
+    font-style: Medium;
+    text-align: left;
+    font-family: Commissioner;
+    font-weight: 500;
+    line-height: 120px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .page3-vector1 {
+    top: 672px;
+    left: 1214px;
+    width: 16px;
+    height: 9px;
+    position: absolute;
+  }
+  .page3-vector2 {
+    top: 709.524169921875px;
+    left: 1212.873291015625px;
+    width: 16px;
+    height: 9px;
+    position: absolute;
+  }
+  .page3-text11 {
+    top: 610px;
+    left:25px;
+    color: rgba(255, 255, 255, 1);
+    right: 57px;
+    width: 102px;
+    height: auto;
+    position: absolute;
+    font-size: 25px;
+    font-style: Medium;
+    text-align: left;
+    font-family: Commissioner;
+    font-weight: 500;
+    line-height: 120px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  
