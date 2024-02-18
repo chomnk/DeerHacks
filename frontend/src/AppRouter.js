@@ -5,6 +5,7 @@ import Login from './Login';
 import Main from './Main';
 import Maps from './Maps';
 import Main_0 from './Main_0';
+import MapsContainer from './MapsContainer';
 
 const AppRouter = () => {
     const { loginWithRedirect, user, isAuthenticated, isLoading } = useAuth0();
@@ -16,7 +17,7 @@ const AppRouter = () => {
             <Routes>
                 <Route path="/" element={ LoginElement } />
                 <Route path="/main" element={<Main user={user} isAuthenticated={isAuthenticated} isLoading={isLoading}/>} />
-                <Route path="/maps" element={<Maps />} />
+                <Route path="/maps" element={<MapsContainer />} />
             </Routes>
         </Router>
     );

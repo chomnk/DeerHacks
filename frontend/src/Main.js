@@ -14,7 +14,7 @@ const Main = (props) => {
     const isAuthenticated = props.isAuthenticated;
     const isLoading = props.isLoading;
 
-    const [location, setLocation] = useState({ latitude: null, longitude: null });
+    const [location, setLocation] = useState({ latitude: 43.5509853, longitude: -79.6662941 });
     const [GarbageType, setGarbageType] = useState("");
     const [GarbageBin, setGarbageBin] = useState("");
     const [items, setItems] = useState([]);
@@ -24,22 +24,47 @@ const Main = (props) => {
     const [ScanButtonText, setScanButtonText] = useState("Scan")
     const [DisplayText, setDisplayText] = useState("")
 
+    useEffect(() => {console.log(location)}, [location])
+
     const handleReportClick = () => {
-        // This takes a screenshot and store as an image
-        const imageSrc = webcamRef.current.getScreenshot();
         navigator.geolocation.getCurrentPosition(
             (position) => {
-                setLocation({
-                    latitude: position.coords.latitude,
-                    longitude: position.coords.longitude,
-                });
+                setLocation({ latitude: parseFloat(position.coords.latitude), longitude: parseFloat(position.coords.longitude)});
             },
             (err) => {
                 console.error(err.message);
             }
         );
-
+        
+        setLocation(location, () => {
+            try {
+                console.log(location.latitude, location.longitude)
+                while (location.latitude == null && location.latitude == null) {}
+                const response = axios.post("http://localhost:5001/report", 
+                    {
+                        "lat": location.latitude,
+                        "lon": location.longitude,
+                        "garbage_type": GarbageType,
+                    }
+                );
+                response.then((res) => {
+                    //useEffect(() => {
+                        //enable scan button
+                        setIsScanDisabled(false);
+                        setScanButtonText("Scan");
+                        //disable report button
+                        setIsReportDisabled(true);
+                        setDisplayText("");
+                    //}, [])
+                });
+            } catch (error) {
+                console.error(error);
+            }
+        })
+        
         try {
+            console.log(location.latitude, location.longitude)
+            while (location.latitude == null && location.latitude == null) {}
             const response = axios.post("http://localhost:5001/report", 
                 {
                     "lat": location.latitude,
@@ -60,13 +85,14 @@ const Main = (props) => {
         } catch (error) {
             console.error(error);
         }
+        
     }
     
 
     const handleScanClick = () => {
         if (ScanButtonText == "Cancel") { 
             setScanButtonText("Scan");
-            setDisplayText("Your previous ")
+            setDisplayText("Your previous scan result was cancelled.")
             setIsScanDisabled(false);
             return;
         }
@@ -88,10 +114,10 @@ const Main = (props) => {
                     // enable report button
                     setIsReportDisabled(false);
                     setScanButtonText("Cancel");
-                    (() => setDisplayText(`This is a ${GarbageType} garbage.`))();
+                    setDisplayText(`This is a ${res.data.item} garbage.`);
+                    setItems([...items, res.data.item]);
                 //}, [])
             });
-            (()=> setItems([...items, GarbageType]))();
             //setDisplayText(`This is a ${GarbageType} garbage.`);
             //append to scan history list
             //setItems([...items, GarbageType])
