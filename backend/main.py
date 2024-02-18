@@ -55,18 +55,20 @@ def handle_locations():
 @app.route('/report', methods=['GET', 'POST'])
 def handle_report():
     if request.method == 'POST':
-        type = request.json.get("type")
+        garbage_type = request.json.get("garbage_type")
         lat = request.json.get("lat")
         lon = request.json.get("lon")
         
-    coll = db["sample_garbage"]
-    mydict = {"type": type, "lat": lat, "lon": lon}
-    x = coll.insert_one(mydict)
-    
-    if x.inserted_id != None:
-        return "Success"
+        coll = db["sample_garbage"]
+        mydict = {"type": garbage_type, "lat": lat, "lon": lon}
+        x = coll.insert_one(mydict)
+        
+        if x.inserted_id != None:
+            return "Success"
+        else:
+            return "Error"
     else:
-        return "Error"
+        return "Invalid method"
         
         
 
@@ -118,6 +120,8 @@ def handle_classify():
             return json_str
         
         return json_str
+    else:
+        return "Invalid method"
 
 @app.route('/test', methods=['GET'])
 def handle_test():
@@ -163,6 +167,8 @@ def handle_test():
         # Extract the content
         content = json_response["choices"][0]["message"]["content"]
         return content
+    else:
+        return "Invalid method"
 
 if __name__ == '__main__':
     app.run(port=5001)

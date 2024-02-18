@@ -44,10 +44,7 @@ const Main = (props) => {
                 {
                     "lat": location.latitude,
                     "lon": location.longitude,
-                    "type": GarbageType,
-                    //new fields of data
-                    "time": Date.now(),
-                    "user_email": user.email
+                    "garbage_type": GarbageType,
                 }
             );
             response.then((res) => {
