@@ -8,6 +8,7 @@ import certifi
 from pymongo import MongoClient
 import base64
 
+# Loading all the item names
 file_path = '/home/kali/Desktop/DeerHacks/dataset.json'
 with open(file_path, 'r') as file:
     data = json.load(file)
@@ -16,20 +17,19 @@ with open(file_path, 'r') as file:
 app = Flask(__name__)
 CORS(app)
 
+# Loading the environmental variable
 load_dotenv()
 
+# Connect to the MongoDB
 client = MongoClient('mongodb+srv://Deerhacks:deerhacks@deerhacks.9v30i1z.mongodb.net/?retryWrites=true&w=majority', tlsCAFile=certifi.where())
-
 db = client.sample_garbage_database
-
-
 try:
     client.admin.command('ping')
     print("Pinged your deployment. You successfully connected to MongoDB!")
 except Exception as e:
     print(e)
     
-
+# Getting the api key from the env
 api_key = os.getenv("API_KEY")
 
 @app.route('/report', methods=['GET', 'POST'])
@@ -51,7 +51,6 @@ def handle_report():
         return "Invalid method"
         
         
-
 @app.route('/classify', methods=['GET', 'POST'])
 def handle_classify():
     if request.method == 'POST':
