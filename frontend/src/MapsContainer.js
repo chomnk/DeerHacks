@@ -53,9 +53,9 @@ const MapsContainer = (props) => {
         <span className="page3-text09">
           <span>My Waste</span>
         </span>
-        <span className="page3-text11">
+        <div onClick={() => navigate("/")} className="page3-text11">
           <span>Sign Out</span>
-        </span>
+        </div>
       </div>
     </div>
   )
