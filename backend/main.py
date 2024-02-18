@@ -60,7 +60,7 @@ def handle_locations():
             result.append(document)
         return json.dumps(result, cls=JSONEncoder)
     else:
-        return "Invalid method"
+        return "Invalid method", 405
     
     
 @app.route('/report', methods=['GET', 'POST'])
@@ -79,7 +79,7 @@ def handle_report():
         else:
             return "Error"
     else:
-        return "Invalid method"
+        return "Invalid method", 405
         
         
 @app.route('/classify', methods=['GET', 'POST'])
@@ -157,7 +157,7 @@ def handle_classify():
         
         return json_str
     else:
-        return "Invalid method"
+        return "Invalid method", 405
 
 @app.route('/test', methods=['GET'])
 def handle_test():
@@ -204,7 +204,7 @@ def handle_test():
         content = json_response["choices"][0]["message"]["content"]
         return content
     else:
-        return "Invalid method"
+        return "Invalid method", 405
 
 if __name__ == '__main__':
     app.run(port=5001)
