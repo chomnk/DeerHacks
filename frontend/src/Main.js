@@ -108,7 +108,7 @@ const Main = (props) => {
                 <div className="trash_cam" onClick={() => navigate("/main")}>Trash Cam</div>
                 <div className="scan-text" onClick={() => navigate("/main")}>Scan</div>
                 <div className="map-text" onClick={() => navigate("/maps")}>Map</div>
-                <div className="home-text02" onClick={() => navigate("/profile")}>Profile</div>
+                <div className="profile-text" onClick={() => navigate("/profile")}>Profile</div>
                 <div className="home-text" onClick={() => navigate("/")}>Log Out</div>
             </nav>
             </div>

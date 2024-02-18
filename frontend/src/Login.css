@@ -34,7 +34,6 @@
   background-color: rgba(54, 74, 51, 1);
 }
 .trash_cam {
-  top: 300px;
   left: -375px;
   color: rgba(255, 255, 255, 1);
   width: 1118px;
@@ -50,7 +49,6 @@
   text-decoration: none;
 }
 .get_started_rectangle {
-  gap: 8px;
   top: 50px;
   left: 1020px;
   width: 90px;
