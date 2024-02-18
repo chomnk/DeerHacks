@@ -6,7 +6,6 @@ from dotenv import load_dotenv
 import json
 import certifi
 from pymongo import MongoClient
-import base64
 
 file_path = '/home/kali/Desktop/DeerHacks/dataset.json'
 with open(file_path, 'r') as file:
@@ -18,24 +17,28 @@ CORS(app)
 
 load_dotenv()
 
+client = MongoClient('mongodb+srv://Deerhacks:deerhacks@deerhacks.9v30i1z.mongodb.net/?retryWrites=true&w=majority', tlsCAFile=certifi.where())
+
+db = client.sample_garbage_database
+
+
+try:
+    client.admin.command('ping')
+    print("Pinged your deployment. You successfully connected to MongoDB!")
+except Exception as e:
+    print(e)
+    
+
 api_key = os.getenv("API_KEY")
 
 @app.route('/report', methods=['GET', 'POST'])
 def handle_report():
     if request.method == 'POST':
-        type = request.json["type"]
-        lat = request.json["lat"]
-        lon = request.json["lon"]
+        type = request.json.get("type")
+        lat = request.json.get("lat")
+        lon = request.json.get("lon")
         
-        
-    uri = "mongodb+srv://Deerhacks:deerhacks@deerhacks.9v30i1z.mongodb.net/"
-    client = MongoClient(uri, tlsCAFile=certifi.where())
-    db = client.sample_garbage_database
     coll = db["sample_garbage"]
-    #myclient = pymongo.MongoClient("mongodb+srv://Deerhacks:deerhacks@deerhacks.9v30i1z.mongodb.net/")
-   # mydb = myclient["sample_garbage_database"]
-    #mycol = mydb["sample_garbage_collection"]
-    
     mydict = {"type": type, "lat": lat, "lon": lon}
     x = coll.insert_one(mydict)
     
@@ -43,7 +46,8 @@ def handle_report():
         return "Success"
     else:
         return "Error"
-    
+        
+        
 
 @app.route('/classify', methods=['GET', 'POST'])
 def handle_classify():
@@ -80,7 +84,19 @@ def handle_classify():
         response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload_2)
 
         print(response.json())
-        return f"Success"
+        temp1 = response.json()["choices"][0]["message"]["content"]
+        temp2 = json.loads(extract_content(temp1))
+        
+        
+        result = db["garbage_type"].find_one({'id': temp2["id"]})
+        print(result)
+        json_str = json.dumps(result, cls=JSONEncoder)
+        print(json_str)
+        
+        if json_str != None:
+            return json_str
+        
+        return json_str
 
 @app.route('/test', methods=['GET'])
 def handle_test():
