@@ -11,13 +11,13 @@ const Maps = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [infoWindowData, setInfoWindowData] = useState();
 
-    const handleMarkerClick = (location) => {
+    const handleMarkerClick = (location, idx) => {
         const lat = location.lat;
         const lon = location.lon;
         mapRef?.panTo({ lat, lon });
         const type = location.type;
         const time = location.timestamp;
-        setInfoWindowData({ type, time });
+        setInfoWindowData({ type, time, idx });
         setIsOpen(true);
     };
 
@@ -49,9 +49,9 @@ const Maps = () => {
                         <Marker 
                             key={index} 
                             position={{ lat: location.lat, lng: location.lon }} 
-                            onClick={() => {handleMarkerClick(location)}}
+                            onClick={() => {handleMarkerClick(location, index)}}
                         >
-                            {isOpen && 
+                            {isOpen && infoWindowData.idx == index && 
                                 <InfoWindow onCloseClick={() => {setIsOpen(false)}}>
                                     <h3>{infoWindowData.type}</h3>
                                 </InfoWindow>

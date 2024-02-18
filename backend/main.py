@@ -8,7 +8,16 @@ import certifi
 from pymongo import MongoClient
 import base64
 
-file_path = '/home/kali/Desktop/DeerHacks/dataset.json'
+from bson import ObjectId
+
+# Custom JSON encoder that converts ObjectId to string
+class JSONEncoder(json.JSONEncoder):
+    def default(self, o):
+        if isinstance(o, ObjectId):
+            return str(o)
+        return json.JSONEncoder.default(self, o)
+
+file_path = 'the_modified_garbage_item_file-2.json'
 with open(file_path, 'r') as file:
     data = json.load(file)
     item_names = [item['item'] for item in data]
