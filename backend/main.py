@@ -100,6 +100,8 @@ def handle_classify():
             return json_str
         
         return json_str
+    else:
+        return "Invalid method"
 
 @app.route('/test', methods=['GET'])
 def handle_test():
@@ -145,6 +147,8 @@ def handle_test():
         # Extract the content
         content = json_response["choices"][0]["message"]["content"]
         return content
+    else:
+        return "Invalid method"
 
 if __name__ == '__main__':
     app.run(port=5001)
