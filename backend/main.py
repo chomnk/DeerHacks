@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import requests
 from flask_cors import CORS
 import os
@@ -10,6 +10,16 @@ import base64
 
 # Loading all the item names
 file_path = '/home/kali/Desktop/DeerHacks/dataset.json'
+from bson import ObjectId
+
+# Custom JSON encoder that converts ObjectId to string
+class JSONEncoder(json.JSONEncoder):
+    def default(self, o):
+        if isinstance(o, ObjectId):
+            return str(o)
+        return json.JSONEncoder.default(self, o)
+
+file_path = 'the_modified_garbage_item_file-2.json'
 with open(file_path, 'r') as file:
     data = json.load(file)
     item_names = [item['item'] for item in data]
@@ -32,6 +42,17 @@ except Exception as e:
 # Getting the api key from the env
 api_key = os.getenv("API_KEY")
 
+@app.route('/locations', methods=['GET', 'POST'])
+def handle_locations():
+    if request.method == 'POST':
+        result = []
+        coll = db["sample_garbage"]
+        all_documents = coll.find()
+        for document in all_documents:
+            result.append(document)
+    return json.dumps(result, cls=JSONEncoder)
+    
+    
 @app.route('/report', methods=['GET', 'POST'])
 def handle_report():
     if request.method == 'POST':
