@@ -1,14 +1,31 @@
-.page1-container {
-  width: 100%;
-  display: flex;
-  overflow: auto;
-  height: 100vh;
-  align-items: center;
-  flex-direction: column;
+@font-face {
+  font-family: 'Red Hat Text';
+  src: url("../fonts/RedHatDisplay-Medium.ttf")
 }
+
+@font-face {
+  font-family: 'Urbanist';
+  src: url("../fonts/Urbanist-Bold.ttf")
+}
+
+@font-face{
+  font-family: 'Commissioner';
+  src: url("../fonts/Commissioner-Bold.ttf")
+}
+
+@font-face{
+  font-family: 'Anybody';
+  src: url("../fonts/Anybody-Bold.ttf")
+}
+
+@font-face{
+  font-family: 'Anybody-Normal';
+  src: url("../fonts/Anybody-Regular.ttf")
+}
+
 .page1-opening-page {
   width: 100%;
-  height: 1024px;
+  height: 720px;
   display: flex;
   overflow: hidden;
   position: relative;
@@ -16,28 +33,28 @@
   flex-shrink: 0;
   background-color: rgba(54, 74, 51, 1);
 }
-.page1-text {
-  top: 67px;
-  left: 168px;
+.trash_cam {
+  top: 300px;
+  left: -375px;
   color: rgba(255, 255, 255, 1);
   width: 1118px;
   height: auto;
   position: absolute;
-  font-size: 112px;
+  font-size: 100px;
   font-style: Bold;
   text-align: center;
   font-family: Urbanist;
-  font-weight: 700;
-  line-height: 120px;
+  font-weight: 200;
+  line-height: 60px;
   font-stretch: normal;
   text-decoration: none;
 }
-.page1-get-started {
+.get_started_rectangle {
   gap: 8px;
-  top: 826px;
-  left: 615px;
-  width: 223px;
-  height: 81px;
+  top: 50px;
+  left: 1020px;
+  width: 90px;
+  height: 24px;
   display: flex;
   padding: 19px 32px;
   overflow: hidden;
@@ -47,13 +64,12 @@
   border-radius: 8px;
   background-color: rgba(32, 65, 41, 1);
 }
-.page1-text02 {
-  top: 18px;
-  left: 27px;
+.get_started_text {
+  left: 23px;
   color: rgba(165, 191, 160, 1);
   height: auto;
   position: absolute;
-  font-size: 35px;
+  font-size: 20px;
   font-style: Bold;
   text-align: left;
   font-family: Commissioner;
@@ -61,6 +77,10 @@
   line-height: 129.99999523162842%;
   font-stretch: normal;
   text-decoration: none;
+  transition: transform 0.3s ease;
+}
+.get_started_text:hover {
+  transform: scale(1.1);
 }
 .page1-text04 {
   top: 920px;
@@ -83,16 +103,14 @@
   text-decoration: NONE;
 }
 .page1-visualize {
-  gap: 10px;
-  top: 239px;
-  left: 538px;
+  top: 150px;
+  left: 410px;
   width: 378px;
   height: 530px;
   display: flex;
   padding: 10px;
   overflow: hidden;
   position: absolute;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
   align-items: flex-start;
   border-radius: 20px;
   background-color: rgba(116, 154, 109, 0.6299999952316284);
@@ -105,9 +123,8 @@
   height: auto;
   position: absolute;
   font-size: 25px;
-  font-style: Bold;
   text-align: left;
-  font-family: Anybody;
+  font-family: Anybody-Normal;
   font-weight: 700;
   line-height: 30px;
   font-stretch: normal;
@@ -116,105 +133,105 @@
 .page1-text08 {
   font-weight: 700;
 }
-.page1-image4 {
+.map {
   top: 36px;
   left: 51px;
-  width: 275px;
+  width: 300px;
   height: 306px;
   position: absolute;
 }
-.page1-image14 {
+.garbage_pin {
   top: 245px;
   left: 226px;
   width: 13px;
   height: 13px;
   position: absolute;
 }
-.page1-image8 {
+.garbage_pin_1 {
   top: 207px;
   left: 167px;
   width: 13px;
   height: 13px;
   position: absolute;
 }
-.page1-image5 {
+.garbage_pin_2 {
   top: 207px;
   left: 167px;
   width: 13px;
   height: 13px;
   position: absolute;
 }
-.page1-image7 {
+.garbage_pin_3 {
   top: 238px;
   left: 167px;
   width: 13px;
   height: 13px;
   position: absolute;
 }
-.page1-image6 {
+.garbage_pin_4 {
   top: 207px;
   left: 213px;
   width: 13px;
   height: 13px;
   position: absolute;
 }
-.page1-image17 {
+.garbage_pin_5 {
   top: 190px;
   left: 188px;
   width: 13px;
   height: 13px;
   position: absolute;
 }
-.page1-image16 {
+.garbage_pin_6 {
   top: 207px;
   left: 157px;
   width: 13px;
   height: 13px;
   position: absolute;
 }
-.page1-image15 {
+.garbage_pin_7 {
   top: 258px;
   left: 202px;
   width: 13px;
   height: 13px;
   position: absolute;
 }
-.page1-image13 {
+.garbage_pin_8 {
   top: 228px;
   left: 226px;
   width: 13px;
   height: 13px;
   position: absolute;
 }
-.page1-image12 {
+.garbage_pin_9 {
   top: 221px;
   left: 213px;
   width: 13px;
   height: 13px;
   position: absolute;
 }
-.page1-image11 {
+.garbage_pin_10 {
   top: 207px;
   left: 253px;
   width: 13px;
   height: 13px;
   position: absolute;
 }
-.page1-image10 {
+.garbage_pin_11 {
   top: 190px;
   left: 213px;
   width: 13px;
   height: 13px;
   position: absolute;
 }
-.page1-image9 {
+.garbage_pin_12 {
   top: 259px;
   left: 167px;
   width: 13px;
   height: 13px;
   position: absolute;
 }
-.page1-ellipse1 {
+.current_location {
   top: 176px;
   left: 216px;
   width: 7px;
@@ -222,9 +239,8 @@
   position: absolute;
 }
 .page1-detection {
-  gap: 10px;
-  top: 237px;
-  left: 92px;
+  left: 10px;
+  top: 150px;
   width: 378px;
   height: 530px;
   display: flex;
@@ -239,13 +255,13 @@
   top: 384px;
   left: 43px;
   color: rgba(255, 255, 255, 1);
-  width: 291px;
+  width: 325px;
   height: auto;
   position: absolute;
   font-size: 25px;
   font-style: normal;
   text-align: left;
-  font-family: Anybody;
+  font-family: Anybody-Normal;
   font-weight: 700;
   line-height: 30px;
   font-stretch: normal;
@@ -276,15 +292,15 @@
   position: absolute;
 }
 .page1-text18 {
-  top: 332px;
+  top: 334px;
   left: 118px;
   color: rgba(255, 255, 255, 1);
   height: auto;
   position: absolute;
-  font-size: 15px;
-  font-style: Bold;
+  font-size: 13px;
+  font-style: Normal;
   text-align: left;
-  font-family: Readex Pro;
+  font-family: Anybody-Normal;
   font-weight: 700;
   line-height: 20px;
   font-stretch: normal;
@@ -292,8 +308,8 @@
 }
 .page1-track-progress {
   gap: 10px;
-  top: 239px;
-  left: 986px;
+  top: 150px;
+  left: 810px;
   width: 378px;
   height: 530px;
   display: flex;
@@ -312,9 +328,9 @@
   height: auto;
   position: absolute;
   font-size: 25px;
-  font-style: Bold;
+  font-style: Normal;
   text-align: left;
-  font-family: Anybody;
+  font-family: Anybody-Normal;
   font-weight: 700;
   line-height: 30px;
   font-stretch: normal;
@@ -322,13 +338,6 @@
 }
 .page1-text21 {
   font-weight: 700;
-}
-.page1-line1 {
-  top: 344px;
-  left: 42px;
-  width: 294px;
-  height: 1px;
-  position: absolute;
 }
 .page1-rectangle3 {
   top: 211px;
@@ -372,6 +381,8 @@
   line-height: 30px;
   font-stretch: normal;
   text-decoration: none;
+  
+  src: url("../fonts/RedHatDisplay-Medium.ttf");
 }
 .page1-text25 {
   top: 60px;

@@ -9,7 +9,7 @@ from pymongo import MongoClient
 import base64
 
 # Loading all the item names
-file_path = '/home/kali/Desktop/DeerHacks/dataset.json'
+file_path = "the_modified_garbage_item_file-2.json"
 from bson import ObjectId
 
 # Custom JSON encoder that converts ObjectId to string
@@ -19,10 +19,9 @@ class JSONEncoder(json.JSONEncoder):
             return str(o)
         return json.JSONEncoder.default(self, o)
 
-file_path = 'the_modified_garbage_item_file-2.json'
 with open(file_path, 'r') as file:
     data = json.load(file)
-    item_names = [item['item'] for item in data]
+    # item_names = [item['item'] for item in data]
 
 app = Flask(__name__)
 CORS(app)
@@ -114,31 +113,31 @@ def handle_classify():
             "max_tokens": 300
         }
         
-        payload_2 = {
-            "model": "gpt-4-vision-preview",
-            "messages": [
-                {
-                    "role": "system",
-                    "content": "You will be classifying images based on the given categories."
-                },
-                {
-                    "role": "user",
-                    "content": [
-                        {
-                            "type": "text",
-                            "text": f"Classify the image based on the following categories: {item_names[:1000]}, return message should be the item name only"
-                        },
-                        {
-                            "type": "image_url",
-                            "image_url": {
-                                "url": f"data:image/jpeg;base64,{base64_image}"
-                            }
-                        }
-                    ]
-                }
-            ],
-            "max_tokens": 300
-        }
+        # payload_2 = {
+        #     "model": "gpt-4-vision-preview",
+        #     "messages": [
+        #         {
+        #             "role": "system",
+        #             "content": "You will be classifying images based on the given categories."
+        #         },
+        #         {
+        #             "role": "user",
+        #             "content": [
+        #                 {
+        #                     "type": "text",
+        #                     "text": f"Classify the image based on the following categories: {item_names[:1000]}, return message should be the item name only"
+        #                 },
+        #                 {
+        #                     "type": "image_url",
+        #                     "image_url": {
+        #                         "url": f"data:image/jpeg;base64,{base64_image}"
+        #                     }
+        #                 }
+        #             ]
+        #         }
+        #     ],
+        #     "max_tokens": 300
+        # }
 
         response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload_1)
 
