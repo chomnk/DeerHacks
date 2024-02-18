@@ -118,7 +118,7 @@ const Main = (props) => {
                     // enable report button
                     setIsReportDisabled(false);
                     setScanButtonText("Cancel");
-                    setDisplayText(`Your object is a(n) ${res.data.item}.`);
+                    setDisplayText(`Your object is a(n) ${res.data.item}. You should throw it into ${res.data.category}`);
                     setItems([...items, res.data.item]);
                 //}, [])
             });
