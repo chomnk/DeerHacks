@@ -42,7 +42,7 @@ const Main = (props) => {
                 {
                     "lat": location.latitude,
                     "lon": location.longitude,
-                    "type": GarbageType,
+                    "garbage_type": GarbageType,
                 }
             );
             response.then((res) => {

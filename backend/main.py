@@ -35,12 +35,12 @@ api_key = os.getenv("API_KEY")
 @app.route('/report', methods=['GET', 'POST'])
 def handle_report():
     if request.method == 'POST':
-        type = request.json.get("type")
+        garbage_type = request.json.get("garbage_type")
         lat = request.json.get("lat")
         lon = request.json.get("lon")
         
     coll = db["sample_garbage"]
-    mydict = {"type": type, "lat": lat, "lon": lon}
+    mydict = {"type": garbage_type, "lat": lat, "lon": lon}
     x = coll.insert_one(mydict)
     
     if x.inserted_id != None:
